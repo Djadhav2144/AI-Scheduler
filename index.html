@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Schedule Generator</title>
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="try.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  
+
+  <div class="top-wrapper">
+    <div class="container main-center">
+
+      <!-- TITLE -->
+      <h1 class="title">AI Schedule Generator</h1>
+      <p class="quote">
+        Today's Quote:
+        <span>The future belongs to those who prepare for it today.</span>
+      </p>
+
+      <!-- INPUT CARD -->
+      <div class="card main-card">
+        <h2 class="section-title">What’s on your mind today?</h2>
+
+        <!-- TASK INPUT -->
+       <div class="input-group mic-wrapper">
+          <label>Tasks (comma-separated)</label>
+          <div class="input-with-btn">
+            <input type="text" id="taskInput" placeholder="Gym, Study, Reading" />
+            <button id="mic-btn" type="button">🎤</button>
+          </div>
+        </div>
+        <!-- TIME ROW -->
+        <div class="row">
+          <div class="input-group">
+            <label>Start Time</label>
+            <input type="time" id="startTime" />
+          </div>
+
+          <div class="input-group">
+            <label>End Time</label>
+            <input type="time" id="endTime" />
+          </div>
+        </div>
+
+        <!-- CATEGORY + DATE -->
+        <div class="row">
+          <div class="input-group">
+            <label>Category</label>
+            <select id="category">
+              <option value="School/College">📘 School/College</option>
+              <option value="Work">💼 Work</option>
+              <option value="Personal">🌸 Personal</option>
+              <option value="Fitness">🏃‍♀️ Fitness</option>
+              <option value="Other">⭐ Other</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Date</label>
+            <input type="date" id="taskDate" />
+          </div>
+        </div>
+
+        <!-- OPTIONS -->
+        <h3 class="subhead">Options</h3>
+        <div class="toggle-row">
+          <label><input type="checkbox" id="mealToggle" checked> Auto Meal Breaks</label>
+          <label><input type="checkbox" id="shortToggle" checked> Short Breaks</label>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="btn-row">
+          <button id="generateBtn" class="primary">Generate</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+        </div>
+      </div>
+
+      <!-- OUTPUT CARD -->
+      <h2 class="output-title">Output</h2>
+      <div class="card" id="outputBox"></div>
+
+      <!-- SUGGESTIONS -->
+      <div class="suggestion" id="suggestionBox"></div>
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-container">
+        <p>Progress</p>
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+      </div><br>
+      
+      <!-- EXTRA ADD-ONS -->
+      <div class="card addon-card">
+        <h2>Extra Add-ons (Optional but Impressive)</h2>
+
+        <div class="addon-buttons">
+          <button id="exportPDF">Export Schedule as PDF</button>
+          <button id="shareLink">Share Schedule via Link</button>
+          <button id="syncGoogleCal">Sync with Google Calendar</button>
+          <button id="dailyNotify">Enable Daily Reminder Notifications</button>
+        </div>
+      </div>
+      <section id="applicationsSection">
+    <h2 class="app-title">✨ Applications of AI Schedule Generator</h2>
+
+    <div class="app-container">
+
+        <div class="app-card">
+            <h3>📘 Smart Time Management</h3>
+            <p>Creates personalized study or work timetables using AI habits detection.</p>
+        </div>
+
+        <div class="app-card">
+            <h3>🤖 Personal AI Assistant</h3>
+            <p>Voice-command task creation & priority-based auto scheduling.</p>
+        </div>
+
+        <div class="app-card">
+            <h3>😊 Emotion-Aware Scheduling</h3>
+            <p>Real-time face emotion detection for smarter, adaptive planning.</p>
+        </div>
+
+        
+
+        <div class="app-card">
+            <h3>🔔 Smart Alerts</h3>
+            <p>Distraction alerts, deadline reminders & motivational notifications.</p>
+        </div>
+
+    </div>
+</section>
+
+   
+  <!-- CHATBOT -->
+  <button id="chatbot-btn">🤖</button>
+
+  <div id="chatbot-box" class="hidden">
+    <div class="chatbot-header">
+      <span>AI Assistant</span>
+      <button id="closeChatbot">✖</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="bot-msg">Hello! How can I assist you today?</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userInput" placeholder="Ask something..." />
+      <button id="sendBtn">➤</button>
+    </div>
+  </div>
+
+  <!-- SOUND -->
+  <audio id="dingSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+
+  <script src="try.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
